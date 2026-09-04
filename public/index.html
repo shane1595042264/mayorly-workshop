@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprite Workshop</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <div class="mark">SW</div>
+      <div>
+        <h1>SPRITE WORKSHOP</h1>
+        <p>Claim a slot, drop a PNG. It is checked against the spec before anyone sees it, then opened as a pull request for you.</p>
+      </div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+
+  <div class="bar" id="bar"></div>
+
+  <div class="panes">
+    <div class="card">
+      <header><h2>SLOT CATALOGUE</h2><span class="sub" id="slotCount"></span></header>
+      <div class="filters" id="filters"></div>
+      <div class="slots" id="slotList"><div class="pad spin">loading…</div></div>
+    </div>
+    <div class="detail" id="detail"><div class="card pad spin">loading catalogue…</div></div>
+  </div>
+</div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
