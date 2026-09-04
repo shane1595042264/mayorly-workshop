@@ -85,3 +85,14 @@ scripts/             sync-validator
 ```
 
 No dependencies anywhere. Node 18+.
+
+## Hardening notes
+
+Six things verified against GitHub's docs that are easy to get wrong and expensive to discover late.
+
+1. **`POST /git/trees` without `base_tree` deletes every file in the repo** in one commit. Documented behaviour, not a bug. Asserted before every call.
+2. **`POST /git/blobs` defaults to `utf-8`.** A PNG uploaded without an explicit `"encoding": "base64"` is silently corrupted.
+3. **A custom `author` field forfeits the Verified badge.** Nobody notices until a branch protection rule requiring signed commits starts rejecting the bot. Attribution uses a `Co-authored-by:` trailer instead.
+4. **Installation tokens are cached for 50 minutes.** Minting one per submission burns a separate secondary limit of 2,000 access-token requests per hour.
+5. **Mutating GitHub calls are serialised.** GitHub's own guidance is to make write requests serially rather than concurrently to stay inside secondary rate limits.
+6. **GitHub hands you a PKCS#1 key; Web Crypto only accepts PKCS#8.** `node:crypto` accepts both, so this server is fine, but an edge runtime would fail with an opaque `DataError` at request time in production. Tell them apart by the first line: `BEGIN RSA PRIVATE KEY` is PKCS#1. Convert with `openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt`. **Never paste an App private key into a web-based converter** — it is commit access to the assets repo.

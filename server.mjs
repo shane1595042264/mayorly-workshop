@@ -104,12 +104,15 @@ const server = createServer(async (req, res) => {
       }
 
       const branch = `art/${slotId}-${randomUUID().slice(0, 8)}`;
+      // artistId is the GitHub numeric id when signed in. Logins get renamed;
+      // the id never changes, so attribution keys on it where we have one.
       const updated = { ...slot, submissions: [...(slot.submissions || []),
-        { artist, licence, at: new Date().toISOString(), branch }] };
+        { artist, artistId: body.artistId || null, licence, at: new Date().toISOString(), branch }] };
 
       const pr = await submitToBranch(CFG, {
         branch,
         message: `add ${slotId} by @${artist}`,
+        coAuthor: `${artist} <${artist}@users.noreply.github.com>`,
         files: [
           { path: `art/${slotId}@1x.png`, content: Buffer.from(bytes) },
           { path: `slots/${slotId}.json`, content: JSON.stringify(updated, null, 2) + '\n' },
