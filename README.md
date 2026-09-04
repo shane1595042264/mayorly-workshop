@@ -1,5 +1,13 @@
 # Sprite Workshop
 
+**Parked, and working. Turn it on when a second artist appears.**
+
+For a solo artist who already has write access to the assets repo, this is pure overhead: it exists to remove the git barrier for people who *do not* have write access. Until then use the toolchain in [`assets/`](../assets) (`npm run next`, `scaffold`, `watch`).
+
+Nothing here rots. It runs today with no credentials, reading slots from a local assets checkout, with submissions disabled behind a visible banner. When you want it live, register a GitHub App and set two env vars.
+
+---
+
 The web app artists use to submit art to [todofarm-assets](../assets). They pick an open slot, drop a PNG, and the workshop opens a pull request for them.
 
 **Artists never need repo write access and never touch git.**
