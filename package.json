@@ -1,5 +1,5 @@
 {
-  "name": "todofarm-workshop",
+  "name": "mayorly-workshop",
   "private": true,
   "type": "module",
   "engines": { "node": ">=18" },

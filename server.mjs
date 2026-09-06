@@ -19,7 +19,7 @@ import { submitToBranch, whoami, exchangeOAuthCode } from './lib/github.mjs';
 const env = k => process.env[k];
 const CFG = {
   owner: env('ASSETS_OWNER') || 'juntaoli-dev',
-  repo: env('ASSETS_REPO') || 'todofarm-assets',
+  repo: env('ASSETS_REPO') || 'mayorly-assets',
   appId: env('GH_APP_ID'),
   privateKey: (env('GH_APP_PRIVATE_KEY') || '').replace(/\\n/g, '\n'),
   clientId: env('GH_CLIENT_ID'),

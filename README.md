@@ -8,7 +8,7 @@ Nothing here rots. It runs today with no credentials, reading slots from a local
 
 ---
 
-The web app artists use to submit art to [todofarm-assets](../assets). They pick an open slot, drop a PNG, and the workshop opens a pull request for them.
+The web app artists use to submit art to [mayorly-assets](../assets). They pick an open slot, drop a PNG, and the workshop opens a pull request for them.
 
 **Artists never need repo write access and never touch git.**
 
